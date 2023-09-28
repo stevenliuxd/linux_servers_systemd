@@ -1,9 +1,9 @@
 # Server Configs
 
-Path: /etc/systemd/system
-Start: systemctl start {name.service}
+## Path: /etc/systemd/system
 
-`ranchbot.service`
+### ranchbot.service
+```
 [Unit]
 Description=Ranchbot Python Script
 After=network.target
@@ -18,8 +18,10 @@ RestartSec=20
 
 [Install]
 WantedBy=multi-user.target
+```
 
-`ftb.service`
+### ftb.service
+```
 [Unit]
 Description=Minecraft Server - Direwolf1.12
 After=network.target
@@ -35,8 +37,10 @@ RestartSec=20
 
 [Install]
 WantedBy=multi-user.target
+```
 
-`satisfactory.service`
+### satisfactory.service
+```
 [Unit]
 Description=Satisfactory Server
 After=network.target
@@ -52,3 +56,5 @@ RestartSec=20
 
 [Install]
 WantedBy=multi-user.target
+```
+

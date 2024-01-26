@@ -90,3 +90,20 @@ User=steven
 [Install]
 WantedBy=default.target
 ```
+
+### node_exporter.service
+```
+[Unit]
+Description=Prometheus Node Exporter
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/node_exporter
+Restart=always
+User=node_exporter
+
+[Install]
+WantedBy=default.target
+```
+
+#### Note that prometheus/grafana/node_exporter was installed via tarball, and we moved the binary from the node_exporter into /usr/local/bin

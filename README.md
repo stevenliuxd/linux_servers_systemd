@@ -58,3 +58,35 @@ RestartSec=20
 WantedBy=multi-user.target
 ```
 
+### prometheus.service
+```
+[Unit]
+Description=Prometheus
+After=network.target
+
+[Service]
+WorkingDirectory=/home/steven/monitoring/prometheus
+Type=simple
+ExecStart=/home/steven/monitoring/prometheus/prometheus --config.file=/home/steven/monitoring/prome>
+Restart=on-failure
+User=steven
+
+[Install]
+WantedBy=default.target
+```
+
+### grafana.service
+```
+[Unit]
+Description=Grafana
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/steven/monitoring/grafana/bin/grafana-server -homepath /home/steven/monitoring/graf>
+Restart=on-failure
+User=steven
+
+[Install]
+WantedBy=default.target
+```

@@ -24,13 +24,13 @@ WantedBy=multi-user.target
 ### ftb.service
 ```
 [Unit]
-Description=Minecraft Server - Direwolf1.12
+Description=FTB Server
 After=network.target
 
 [Service]
-User=steven
-Group=steven
-WorkingDirectory=/home/steven/servers/direwolf1_12
+User=root
+Group=root
+WorkingDirectory=/home/steven/servers/unstable_1_2_0
 ExecStart=/bin/bash start.sh
 ExecStop=/bin/bash stop.sh
 Restart=on-failure

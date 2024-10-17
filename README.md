@@ -2,19 +2,20 @@
 
 ## Path: /etc/systemd/system
 
-### ranchbot.service
+### ranchbot.service - requires docker
 ```
 [Unit]
-Description=Ranchbot Python Script
-After=network.target
+Description=Ranchbot Discord Bot Service
+After=network.target docker.service
+Requires=docker.service
 
 [Service]
-User=steven
-Group=steven
+ExecStart=/usr/bin/docker run --rm --env-file /home/steven/code/ranchbot/.env ranchbot
 WorkingDirectory=/home/steven/code/ranchbot
-ExecStart=/usr/bin/python3 /home/steven/code/ranchbot/ranchbot.py
-Restart=on-failure
-RestartSec=20
+Restart=always
+User=steven
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
